@@ -10,15 +10,17 @@
 <body>
     <h2>Tarefas Pendentes</h2>
     <div class="pendentes">
-        <ul id="resultado"></ul>
+        <ul id="item"></ul>
     </div>
-    <input type="text" name="" id="inputTarefa" placeholder="Tarefas...">
+    <input type="text" name="" id="resultado" placeholder="Tarefas...">
     <button type="submit" id="button">Adicionar</button>
     <h2>Tarefas Finalizadas</h2>
     <div>
-
+        <ul id="finalizadas"></ul>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
+
+<!-- Após criar o elemento, devo fazer com que o usuário possa finalizar as tarefas que finalizou, para isso, vou ter que criar um elemento que fique ao lado da respectiva tarefa e com isso, após ele clicar, ele consiga finalizar e a tarefa terá que ir para uma parte onde mostra as tarefas finalizadas. Para isso terei que após o createElement criar o elemento, terei que fazer um botão para deletar a respectiva tarefa, então, posso usar um delete(li) -->
