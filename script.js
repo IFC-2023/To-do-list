@@ -1,25 +1,30 @@
-let resultado = document.getElementById("resultado").value;
-let pendentes = document.getElementById("item");
-let finalizadas = document.getElementById("finalizadas");
-
 function addItens() {
-    let selecionados = document.createElement("li");
-    let ultimoItem = pendentes.childElementCount;
-    selecionados.dataset.index = ultimoItem;
-    selecionados.innerHTML = resultado;
-    document.getElementById("item").appendChild(selecionados);
-    if (selecionados > 0) {
-        let finalizar = document.createElement("a");
-        finalizar.innerHTML = resultado;
-        document.getElementById("finalizar").appendChild(finalizar);
-        document.getElementById("button").addEventListener
+    let resultado = document.getElementById("resultado").value;
+    if (resultado.trim() !== "") {
+        let selecionados = document.createElement("li");
+        selecionados.innerHTML = resultado;
+        // Irá adicionar um botão para finalizar a tarefa
+        let finalizarBtn = document.createElement("button");
+        finalizarBtn.innerHTML = "Finalizar";
+        finalizarBtn.addEventListener("click", function() {
+            finalizarTarefa(selecionados);
+        });
+        // Irá adicionar um botão pra excluir a tarefa
+        let excluirBtn = document.createElement("button");
+        excluirBtn.innerHTML = "Excluir";
+        excluirBtn.addEventListener("click", function() {
+            excluirTarefa(selecionados);
+        });
+        // Vai adicionar os itens na lista de tarefas pendentes
+        selecionados.appendChild(finalizarBtn);
+        selecionados.appendChild(excluirBtn);
+        document.getElementById("item").appendChild(selecionados);
     }
-}    
-// resultado.innerHTML = tarefas.value;
-
-document.getElementById("button").addEventListener("click", addItens);
-
-function concluir(item) {
-    removido = pendentes.children[item];
-    pendentes.removeChild(removido);
 }
+function finalizarTarefa(tarefa) {
+    document.getElementById("finalizadas").appendChild(tarefa);
+}
+function excluirTarefa(tarefa) {
+    tarefa.remove();
+}
+document.getElementById("button").addEventListener("click", addItens);
