@@ -3,6 +3,8 @@ function addItens() {
     if (resultado.value.trim() !== "") {
         let selecionados = document.createElement("li"); // Está criando as li's para que possa criar os botões de finalizar e excluir tarefas
         selecionados.innerHTML = resultado.value;
+        // Irá fazer com que o foco sempre fique na input
+        resultado.focus();
         // Irá adicionar um botão para finalizar a tarefa
         let finalizarBtn = document.createElement("button"); // Estou criando um botão para finalizar a tarefa
         finalizarBtn.innerHTML = "Finalizar"; // Estou colocando o nome do botão
@@ -10,12 +12,16 @@ function addItens() {
         finalizarBtn.addEventListener("click", function() {
             finalizarTarefa(selecionados); // Estou adicionando um evento de click no botão
         });
+        // Irá fazer com que o foco sempre fique na input
+        resultado.focus();
         // Irá adicionar um botão pra excluir a tarefa
         let excluirBtn = document.createElement("button"); // Estou criando um botão para excluir a tarefa
         excluirBtn.innerHTML = "Excluir"; // Estou colocando o nome do botão
         excluirBtn.addEventListener("click", function() { 
             excluirTarefa(selecionados); // Estou adicionando um evento de click no botão
         });
+        // Irá fazer com que o foco sempre fique na input
+        resultado.focus();
         // Vai adicionar os itens na lista de tarefas pendentes
         selecionados.appendChild(finalizarBtn); // Esses appendChild irá criar dentro da let selecionados o botão, que tem a let finalizarBtn.
         selecionados.appendChild(excluirBtn); // Esses appendChild irá criar dentro da let selecionados o botão, que tem a let excluirBtn.
