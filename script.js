@@ -4,7 +4,7 @@ function addItens() {
         let selecionados = document.createElement("li"); // Está criando as li's para que possa criar os botões de finalizar e excluir tarefas
         selecionados.innerHTML = resultado;
         // Irá adicionar um botão para finalizar a tarefa
-        let finalizarBtn = document.createElement("button");
+        let finalizarBtn = document.createElement("button"); // Esttou criando um botão para finalizar o botão
         finalizarBtn.innerHTML = "Finalizar";
         finalizarBtn.addEventListener("click", function() {
             finalizarTarefa(selecionados);
